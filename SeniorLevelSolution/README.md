@@ -48,3 +48,65 @@ printEmployeeNames(employees);
 console.log(
 `Total Salary: ${getTotalSalary(employees)}`
 );
+
+type ProductStatus =
+| "in-stock"
+| "out-of-stock"
+| "coming-soon";
+
+interface Product {
+id: number;
+title: string;
+price: number;
+status: ProductStatus;
+}
+
+const productItems: Product[] = [
+{
+id: 1,
+title: "Apple",
+price: 500,
+status: "in-stock",
+},
+{
+id: 2,
+title: "Pineapple",
+price: 100,
+status: "out-of-stock",
+},
+{
+id: 3,
+title: "Grapes",
+price: 150,
+status: "coming-soon",
+},
+];
+
+function printProductStatus(
+products: Product[]
+): void {
+products.forEach((product) => {
+console.log(
+`${product.title} is ${product.status}`
+);
+});
+}
+
+function getProduct(
+id: string | number
+): void {
+if (typeof id === "string") {
+console.log(
+`Searching product by name: ${id}`
+);
+} else {
+console.log(
+`Searching product by ID: ${id}`
+);
+}
+}
+
+printProductStatus(productItems);
+
+getProduct(1);
+getProduct("Apple");

@@ -1,3 +1,5 @@
+//Lession 1 : Basics
+
 /*let age: number = 21;
 let platform: string = "jiohotstar";
 let isPrime: boolean = true;
@@ -121,3 +123,153 @@ let name = "Levi";
 // }
 //
 // console.log(getTotalSalary(employees));
+
+//  Lesson 2: Interfaces, Type Aliases, Union Types & Literal Types
+
+//  Interface  :- Best for object shapes.
+//  Type :-  Best for: Unions , Intersections , Primitive aliases , Advanced types
+
+// type Status = "loading" | "success";
+// type Theme = "dark" | "light";
+
+// Union Types  :-  One variable can hold multiple types.
+
+// let userId: string | number;
+//
+// userId = 23;
+// userId = "jeevan";
+//
+// console.log(userId);
+
+// real world example many Api returns the "id" : 123 or json { "id": "123" }
+/*
+literal Types  :-
+
+type Status = "loading" | "success" | "error";
+
+let status: Status;
+
+status = "loading";
+status = "success";
+
+status = "completed"; Error
+*/
+
+/*
+ combining unions 
+
+type Role = "admin" | "user" | "moderator";
+
+interface User {
+  id: number;
+  name: string;
+  role: Role;
+}
+
+const user: User = {
+  id: 1,
+  name: "Levi",
+  role: "admin"
+};  */
+
+/*
+ * 6. Type Narrowing
+
+  function calculateDiscount(
+  discount: string | number
+) {
+  if (typeof discount === "number") {   // type narrowing
+    return discount;
+  }
+
+  return Number(discount);
+}
+ */
+
+// assigment
+/*
+type productStatus = "in Stock" | "out-of-stock" | "coming soon";
+
+interface product {
+  id: number | string;
+  title: string;
+  price: number;
+  status: productStatus;
+}
+
+const productItems: product[] = [
+  {
+    id: 1,
+    title: "Apples",
+    price: 500,
+    status: "in Stock",
+  },
+  {
+    id: 2,
+    title: "pineapple",
+    price: 100,
+    status: "out-of-stock",
+  },
+  {
+    id: 1,
+    title: "grapes",
+    price: 100,
+    status: "in Stock",
+  },
+];
+
+function printProductStatus(productItems: product[]): void {
+  productItems.forEach((items) => {
+    console.log(`${items.title} is ${items.status}`);
+  });
+} */
+
+/*// printProductStatus(productItems);
+interface product {
+  id: number | string;
+  title: string;
+  price: number;
+  status: productStatus;
+}
+type productStatus = "in Stock" | "out-of-stock" | "coming soon";
+const productItems: product[] = [
+  {
+    id: 1,
+    title: "Apples",
+    price: 500,
+    status: "in Stock",
+  },
+  {
+    id: "second one",
+    title: "pineapple",
+    price: 100,
+    status: "out-of-stock",
+  },
+  {
+    id: 1,
+    title: "grapes",
+    price: 100,
+    status: "in Stock",
+  },
+];
+function printProductStatus(productItems: product[]): void {
+  productItems.forEach((items) => {
+    console.log(`${items.title} is ${items.status}`);
+  });
+}
+printProductStatus(productItems);
+
+function getProduct(productItems: product[]): void {
+  productItems.forEach((items) => {
+    if (items.id === "string") {
+      console.log(`product name is ${items.id}`);
+    } else {
+      console.log(`product number is ${items.id}`);
+    }
+  });
+}
+
+getProduct(productItems);
+*/
+
+// Generics
