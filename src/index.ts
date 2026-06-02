@@ -12,7 +12,7 @@ function greet(age: number, platform: string, isPrime: boolean): string {
 console.log(greet(age, platform, isPrime)); */
 
 // Most of the time you don't need to write types.
-let name = "Levi";
+// let name = "Levi";
 // TypeScript automatically understands: let name: string
 //This feature is called Type Inference.  Senior developers use inference whenever possible.
 
@@ -273,3 +273,117 @@ getProduct(productItems);
 */
 
 // Generics
+
+// Generics allow you to create reusable components, functions, classes, and types that work with multiple data types while preserving type safety.  // Type Placeholder
+// Generics Holds types   <T>
+
+// function identity<T>(value: T): T {
+//   return value;
+// }
+//
+// const name = identity<string>("Levi");
+//
+// const age = identity<number>(22);
+//
+// console.log(name);
+// console.log(age);
+
+// const names: Array<string> = ["jeevan", "kumar"];
+
+// function getElements<T>(ele: T[]): T {
+//   return ele[0];
+// }
+//
+// console.log(getElements(["apple", "orange", "grapes", "coffe", "congrats"]));
+// console.log(getElements([1, 2, 3, 4, 5, 6]));
+
+// function createMultiple<T, U>(first: T, second: U) {
+//   return {
+//     first,
+//     second,
+//   };
+// }
+//
+// console.log(createMultiple("levi", 22));
+
+// //  Generic Interfaces
+//
+// interface ApiResponce<T> {
+//   success: boolean;
+//   data: T;
+// }
+// interface user {
+//   id: number;
+//   title: string;
+// }
+//
+// const responce: ApiResponce<user> = {
+//   success: true,
+//   data: {
+//     id: 1,
+//     title: "God",
+//   },
+// };
+
+/*
+
+function echo<T>(ele: T): T {
+  return ele;
+}
+
+console.log(echo("hello"));
+console.log(echo(24));
+console.log(echo(true));
+
+function getLastItem<T>(items: T[]): T {
+  return items[2];
+}
+
+console.log(getLastItem([1, 2, 3]));
+console.log(getLastItem(["a", "b", "c"]));
+
+function makePair<T, U>(first: T, second: U) {
+  return {
+    first,
+    second,
+  };
+}
+
+makePair("Levi", 22);
+
+interface ApiResponce<T> {
+  status: boolean;
+  data: T;
+}
+
+interface employee {
+  id: number;
+  name: string;
+}
+
+const responceData: ApiResponce<employee> = {
+  status: true,
+  data: {
+    id: 2,
+    name: "Durandhar",
+  },
+};
+
+console.log(responceData);
+
+function printLength<
+  T extends {
+    length: number;
+  },
+>(value: T): void {
+  console.log(value.length);
+}
+
+printLength("Levi");
+
+printLength([1, 2, 3, 4]);
+printLength("100");
+ it takes every type except number  
+*/
+
+// Lesson 4 :- Utility Types
